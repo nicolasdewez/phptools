@@ -61,6 +61,13 @@ if [[ $IS_ROOT = 1 ]]; then
             mv symfony /usr/local/bin/symfony
         fi
 
+        if [[ ! -f /usr/local/bin/symfony-upgrade-fixer ]]; then
+            echo 'Install Symfony upgrade fixer'
+            wget https://github.com/umpirsky/Symfony-Upgrade-Fixer/releases/download/v0.1.3/symfony-upgrade-fixer.phar
+            chmod a+x symfony-upgrade-fixer.phar
+            mv symfony-upgrade-fixer.phar /usr/local/bin/symfony-upgrade-fixer
+        fi
+
         if [[ ! -f /usr/local/bin/sami ]]; then
             echo 'Install Sami'
             curl http://get.sensiolabs.org/sami.phar -o sami
